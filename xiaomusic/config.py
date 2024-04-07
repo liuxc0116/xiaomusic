@@ -36,12 +36,17 @@ DEFAULT_COMMAND = ("5-1", "5-5", "2-1")
 KEY_WORD_DICT = {
     "播放歌曲": "play",
     "放歌曲": "play",
+    "播放": "play",
+    "播放本地": "play",
+    "播放互联网歌曲": "play_internet",
     "下一首": "play_next",
     "单曲循环": "set_play_type_one",
     "全部循环": "set_play_type_all",
     "随机播放": "random_play",
     "关机": "stop",
     "停止播放": "stop",
+    "停止": "stop",
+    "暂停": "stop",
     "分钟后关机": "stop_after_minute",
     "set_volume#": "set_volume",
 }
@@ -57,12 +62,17 @@ KEY_MATCH_ORDER = [
     "分钟后关机",
     "播放歌曲",
     "放歌曲",
+    "播放",
+    "播放本地",
+    "播放互联网歌曲"
     "下一首",
     "单曲循环",
     "全部循环",
     "随机播放",
     "关机",
     "停止播放",
+    "停止",
+    "暂停",
 ]
 
 SUPPORT_MUSIC_TYPE = [

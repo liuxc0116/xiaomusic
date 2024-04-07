@@ -482,8 +482,37 @@ class XiaoMusic:
             return (opvalue, oparg)
         return (None, None)
 
-    # 播放歌曲
+    # 播放本地歌曲
     async def play(self, **kwargs):
+        search_key,name = kwargs["arg1"].split('|')
+        #空值填充:
+        search_key = search_key if search_key else name
+        name = name if name else search_key
+        if search_key == "" and name == "":
+            await self.play_next()
+            return 
+        filename = self.get_filename(name)
+
+        if len(filename) <= 0:
+            return
+            # await self.download(search_key,name)
+            # self.log.info("正在下载中 %s", search_key+":"+name)
+            # await self.download_proc.wait()
+            # # 把文件插入到播放列表里
+            # self.add_download_music(name)
+
+        self.cur_music = name
+        self.log.info("cur_music %s", self.cur_music)
+        url = self.get_file_url(name)
+        self.log.info("播放 %s", url)
+        await self.stop_if_xiaoai_is_playing()
+        await self.mina_service.play_by_url(self.device_id, url)
+        self.log.info("已经开始播放了")
+        # 设置下一首歌曲的播放定时器
+        self.set_next_music_timeout()
+
+    # 播放互联网歌曲
+    async def play_internet(self, **kwargs):
         search_key,name = kwargs["arg1"].split('|')
         #空值填充:
         search_key = search_key if search_key else name
