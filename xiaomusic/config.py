@@ -36,7 +36,6 @@ DEFAULT_COMMAND = ("5-1", "5-5", "2-1")
 KEY_WORD_DICT = {
     "播放歌曲": "play",
     "放歌曲": "play",
-    "播放": "play",
     "播放本地": "play",
     "播放互联网歌曲": "play_internet",
     "下一首": "play_next",
@@ -62,7 +61,6 @@ KEY_MATCH_ORDER = [
     "分钟后关机",
     "播放歌曲",
     "放歌曲",
-    "播放",
     "播放本地",
     "播放互联网歌曲"
     "下一首",
