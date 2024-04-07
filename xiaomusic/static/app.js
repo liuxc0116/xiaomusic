@@ -45,6 +45,13 @@ $(function(){
     sendcmd(cmd);
   });
 
+  $("#play_inet").on("click", () => {
+    var search_key = $("#music-name").val();
+    var filename=$("#music-filename").val();
+    let cmd = "播放互联网歌曲"+search_key+"|"+filename;
+    sendcmd(cmd);
+  });
+
   $("#volume").on('input', function () {
     var value = $(this).val();
     sendcmd("set_volume#"+value);
