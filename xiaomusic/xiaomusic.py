@@ -484,7 +484,10 @@ class XiaoMusic:
 
     # 播放本地歌曲
     async def play(self, **kwargs):
-        search_key,name = kwargs["arg1"].split('|')
+        ukey = kwargs["arg1"]
+        if ukey.find("|") == -1:
+            ukey = ukey + "|"
+        search_key,name = ukey.split('|')
         #空值填充:
         search_key = search_key if search_key else name
         name = name if name else search_key
@@ -513,7 +516,10 @@ class XiaoMusic:
 
     # 播放互联网歌曲
     async def play_internet(self, **kwargs):
-        search_key,name = kwargs["arg1"].split('|')
+        ukey = kwargs["arg1"]
+        if ukey.find("|") == -1:
+            ukey = ukey + "|"
+        search_key,name = ukey.split('|')
         #空值填充:
         search_key = search_key if search_key else name
         name = name if name else search_key
